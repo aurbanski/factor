@@ -1,8 +1,19 @@
 # HW 8
 # Alex Urbanski and Mengchen Gong
 # The code below is commented but a more in depth explanation is in the writeup
-# To run code follow instructions at bottom of this page
 
+############################################################
+#                   HOW TO RUN THE CODE                    #
+############################################################
+# In the terminal just run:                                #
+# $ python pollard.py number                               #
+# where number is replaced with the number you want to     #
+# test. The code will pass that in as a command line       #
+# argument and then display the factors and the time taken.#
+############################################################
+
+
+import sys
 import math
 import random
 import time
@@ -83,21 +94,13 @@ def pollard (modder):
     returnArr = [remainder, int(modder / remainder)]
     return returnArr
 
-############################################################
-#                   HOW TO RUN THE CODE                    #
-############################################################
-# Just enter any number that you want to check into the    #
-# function call for pollard below. Just replace            #
-# 13845251856075533713 with any number that you want. Then #
-# from the command line run $ python pollard.py and it     #
-# will output the prime factors.                           #
-############################################################
-# If you want to see how fast it runs, you can uncomment   #
-# the three commented lines below and it will also output  #
-# how long it took to run in seconds.                      #
-############################################################
 
-#start = time.time()
-print(pollard(13845251856075533713))
-#end = time.time()
-#print(str(end - start))
+print('=================================================')
+print('For the number ' + sys.argv[1])
+print('=================================================')
+start = time.time()
+print("The two factors are: ")
+print(pollard(int(sys.argv[1])))
+end = time.time()
+print('Time taken in seconds: ')
+print(str(end - start))
